@@ -1,0 +1,108 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 harness
+> npm run secrets:check && npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run test:e2e
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 secrets:check
+> node scripts/check-secrets.mjs
+
+Scanned 72 source/config files; no configured secret patterns found.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 lint
+> eslint . --max-warnings 0
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 typecheck
+> tsc --noEmit
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 test:coverage
+> vitest run --coverage
+
+
+ RUN  v5.0.5 <repository>
+      Coverage enabled with v8
+
+
+ Test Files  10 passed (10)
+      Tests  114 passed (114)
+   Start at  21:41:54
+   Duration  2.42s (import 49%, tests 20%, environment 12%, transform 11%, worker 7%)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   94.67 |    91.51 |   93.97 |    97.1 |
+ .../server/src/db |    90.9 |      100 |     100 |   90.47 |
+  store.ts         |    90.9 |      100 |     100 |   90.47 | 30-31
+ ...erver/src/game |   97.43 |    96.03 |     100 |   99.26 |
+  engine.ts        |   97.43 |    96.03 |     100 |   99.26 | 162
+ ...r/src/security |   98.92 |    97.46 |     100 |     100 |
+  commands.ts      |   98.33 |    96.29 |     100 |     100 | 10,74
+ ...ver/src/twitch |      89 |     79.2 |   82.75 |   94.15 |
+  bridge.ts        |      89 |     79.2 |   82.75 |   94.15 | ...88-289,300-301
+ ...es/physics/src |   98.59 |      100 |     100 |    98.3 |
+  index.ts         |   98.59 |      100 |     100 |    98.3 | 104
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 94.67% ( 533/563 )
+Branches     : 91.51% ( 356/389 )
+Functions    : 93.97% ( 78/83 )
+Lines        : 97.1% ( 470/484 )
+================================================================================
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 build
+> vite build --config apps/web/vite.config.ts && esbuild apps/server/src/index.ts --bundle --platform=node --target=node24 --format=esm --packages=external --alias:@prism/shared=./packages/shared/src/index.ts --alias:@prism/physics=./packages/physics/src/index.ts --outfile=dist/server/index.js
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 120 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/web/index.html                          0.65 kB │ gzip:   0.39 kB
+dist/web/assets/index-BNlf2r4K.css          21.13 kB │ gzip:   5.50 kB
+dist/web/assets/vision_bundle-BFNTaDwA.js  153.82 kB │ gzip:  45.41 kB
+dist/web/assets/index-CiiDRkM4.js          354.59 kB │ gzip: 107.52 kB
+
+✓ built in 407ms
+
+  dist/server/index.js  48.6kb
+
+⚡ Done in 27ms
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tw1tch-prism-x@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:374) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] .env not found. Continuing without it.
+[WebServer] (node:387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:399) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/arena.spec.ts:21:1 › play, solve, vote, persist, advance, pause, and view the OBS overlay (11.7s)
+  ✓  2 tests/e2e/arena.spec.ts:63:1 › select a mission, reject malformed chat, reset and recover from denied camera access (2.0s)
+  ✓  3 tests/e2e/arena.spec.ts:96:1 › mobile layout stays within viewport and dialogs close with Escape (1.0s)
+  ✓  4 tests/e2e/arena.spec.ts:111:1 › spectator controls stay locked and transport failure is visible (879ms)
+
+  4 passed (17.4s)
